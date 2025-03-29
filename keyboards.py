@@ -18,6 +18,7 @@ def admin_menu_keyboard():
     kb = ReplyKeyboardMarkup(
         keyboard=[
             [KeyboardButton(text="Do'konlarni ro'yhatga olish")],
+            [KeyboardButton(text="Tariflarni o'zgartirish")],
             [KeyboardButton(text="Statistika")]
         ],
         resize_keyboard=True

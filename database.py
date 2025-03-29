@@ -19,10 +19,10 @@ def init_db():
             shop_number INTEGER UNIQUE,
             name TEXT,
             details TEXT,
-            registration_certificate TEXT,  
-            contract_pdf TEXT,               
+            registration_certificate TEXT, 
+            contract_pdf TEXT,            
             cadastre_pdf TEXT,              
-            lease_contract_pdf TEXT,         
+            lease_contract_pdf TEXT,       
             photo TEXT,                     
             area REAL                       
         )
@@ -40,7 +40,7 @@ def init_db():
             previous_balance REAL,           
             paid_amount REAL,                
             due_amount REAL,                 
-            tax_amount REAL,                
+            tax_amount REAL,                 
             FOREIGN KEY(shop_id) REFERENCES shops(id)
         )
     """)
@@ -58,7 +58,7 @@ def init_db():
             calculated_amount INTEGER,       
             paid_amount INTEGER,            
             balance INTEGER,                 
-            overpayment INTEGER,            
+            overpayment INTEGER,             
             FOREIGN KEY(shop_id) REFERENCES shops(id)
         )
     """)

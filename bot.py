@@ -6,19 +6,24 @@ from config import BOT_TOKEN
 from keyboards import main_menu_keyboard
 from handlers.admin import admin_router
 from handlers.shops import shop_router
+from database import init_db
 
 
 async def start_handler(message: types.Message):
     await message.answer(
-        "Salom! Botga xush kelibsiz. Iltimos, quyidagi buyruqlardan birini tanlang:",
+        "Assalomu alaykum! Botga hush kelibsiz. Iltimos, quyidagi bo'limlardan birini tanlang:",
         reply_markup=main_menu_keyboard()
     )
 
 
 async def main():
+    init_db()
+
     bot = Bot(BOT_TOKEN, default=DefaultBotProperties(parse_mode='HTML'))
     dp = Dispatcher()
+
     dp.message.register(start_handler, Command("start"))
+
     dp.include_router(admin_router)
     dp.include_router(shop_router)
 

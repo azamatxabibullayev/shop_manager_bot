@@ -29,10 +29,17 @@ async def shop_details(callback: types.CallbackQuery):
     shop = cursor.fetchone()
     conn.close()
     if shop:
-        text = (f"Do'kon: {shop['name']}\n"
-                f"Raqam: {shop['shop_number']}\n"
-                f"Ma'lumot: {shop['details']}\n"
-                f"Hajmi: {shop['area']} кв.м")
+        text = (
+            f"Do'kon: {shop['name']}\n"
+            f"Raqam: {shop['shop_number']}\n"
+            f"Ma'lumot: {shop['details']}\n"
+            f"Hajmi: {shop['area']} кв.м\n"
+            f"Ro'yxatdan o'tish guvohnomasi (PDF): {shop['registration_certificate']}\n"
+            f"Shartnoma (PDF): {shop['contract_pdf']}\n"
+            f"Kadastr hujjati (PDF): {shop['cadastre_pdf']}\n"
+            f"Ijara shartnomasi (PDF): {shop['lease_contract_pdf']}\n"
+            f"3x4 Foto: {shop['photo']}"
+        )
         await callback.message.answer(text)
     else:
         await callback.message.answer("Do'kon topilmadi.")
