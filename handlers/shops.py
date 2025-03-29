@@ -4,6 +4,7 @@ from database import get_connection
 
 shop_router = Router()
 
+
 @shop_router.message(lambda message: message.text == "Do'konlar bo'limi")
 async def list_shops(message: types.Message):
     conn = get_connection()
@@ -17,6 +18,7 @@ async def list_shops(message: types.Message):
         await message.answer("Do'konlar ro'yxati:", reply_markup=kb)
     else:
         await message.answer("Hali do'konlar qo'shilmagan.")
+
 
 @shop_router.callback_query(lambda c: c.data and c.data.startswith("shop_"))
 async def shop_details(callback: types.CallbackQuery):

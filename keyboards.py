@@ -1,5 +1,6 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 
+
 def main_menu_keyboard():
     kb = ReplyKeyboardMarkup(
         keyboard=[
@@ -12,6 +13,7 @@ def main_menu_keyboard():
     )
     return kb
 
+
 def admin_menu_keyboard():
     kb = ReplyKeyboardMarkup(
         keyboard=[
@@ -21,6 +23,7 @@ def admin_menu_keyboard():
         resize_keyboard=True
     )
     return kb
+
 
 def shops_inline_keyboard(shops: list):
     kb = InlineKeyboardMarkup(row_width=3)
